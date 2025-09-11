@@ -13,6 +13,11 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Prevent horizontal overflow */
+html, body {
+    overflow-x: hidden;
+}
+
 /* Custom animations */
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
@@ -165,6 +170,23 @@ html {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Cercle décoratif derrière l'image d'accueil */
+.cercle-deco {
+    left: 50rem;           /* Ajuste cette valeur pour déplacer encore plus à droite */
+    background: rgb(10,24,77);
+    width: 256px;
+    height: 256px;
+    border-radius: 50%;
+    filter: blur(0.2px);
+    transform: scale(4.98);
+}
+@media (min-width: 1024px) {
+    .cercle-deco {
+        left: 45rem;       /* Encore plus à droite sur grand écran */
+        top: -16rem;
+    }
 }
 
 /* Responsive adjustments */
