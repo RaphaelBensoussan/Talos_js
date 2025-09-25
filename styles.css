@@ -288,3 +288,7 @@ button:focus {
 ::-webkit-scrollbar-thumb:hover {
     background: #2563eb;
 }
+.qhHTGg {
+    pointer-events: none;
+    position: relative;
+}
