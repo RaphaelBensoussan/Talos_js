@@ -13,6 +13,11 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Prevent horizontal overflow */
+html, body {
+    overflow-x: hidden;
+}
+
 /* Custom animations */
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
@@ -165,6 +170,31 @@ html {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Cercle décoratif derrière l'image d'accueil */
+.cercle-deco {
+    background: rgb(10,24,77);
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    position: absolute;
+    background-image: url('motif.png');
+    background-repeat: repeat;
+    background-size: 60px 60px;
+    z-index: 0;
+}
+@media (min-width: 640px) { /* sm */
+    .cercle-deco {
+        width: 600px;
+        height: 600px;
+    }
+}
+@media (min-width: 1024px) { /* lg */
+    .cercle-deco {
+        width: 800px;
+        height: 800px;
+    }
 }
 
 /* Responsive adjustments */

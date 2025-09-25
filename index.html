@@ -9,43 +9,25 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="font-sans">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg fixed top-0 w-full z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <img src="logo-talos.png" alt="Talos" class="h-8 w-auto">
-                    <span class="ml-2 text-xl font-bold text-blue-900">Talos</span>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#features" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-2xl font-medium">Fonctionnalités</a>
-                        <a href="#about" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-2xl font-medium">À propos</a>
-                        <a href="#contact" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-2xl font-medium">Contact</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
+    
     <!-- Hero Section -->
-    <section class="pt-20 pb-16 bg-gradient-to-r from-blue-50 to-green-50 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full pattern-overlay"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section class="min-h-screen flex items-center bg-white relative overflow-hidden pt-20 pb-16">
+        <!-- Logo en haut à gauche -->
+        <div class="absolute top-2 left-2 sm:top-8 sm:left-8 lg:top-10 lg:left-20 z-20">
+            <img src="logo-talos.png" alt="Talos" class="h-10 sm:h-14 lg:h-24 w-auto max-w-[60vw] sm:max-w-[80vw]">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6 lg:space-y-8 scroll-animate">
                     <h1 class="hero-title text-3xl sm:text-4xl lg:text-6xl font-bold text-blue-900 leading-tight">
                         TALOS : RÉVOLUTIONNEZ
                         <span class="text-green-600 block lg:inline">L'ACCESSIBILITÉ TEXTUELLE</span>
                     </h1>
-                    <p class="text-2xl sm:text-lg text-gray-700 max-w-lg">
-                        Avec Talos, l'esprit au service de la lecture ! 
-                        Nos textes sont optimisés FALC pour tous pros, 
-                        les ESAT et les structures socio-médico 
-                        handicap.
+                    <p class="text-base sm:text-lg text-blue-900 max-w-lg">
+                        Découvrez Talos, une interface de relecture et d’adaptation de texte spécialement conçue pour permettre aux personnes en situation de handicap intellectuel de participer activement à la validation des textes en FALC.
                     </p>
-                    <button class="bg-blue-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-xl font-bold">
-                        Accéder à Talos
+                    <button class="bg-blue-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-blue-800 transition-colors shadow-lg btn-pulse w-full sm:w-auto">
+                        Comment ça marche ?
                     </button>
                     <div class="flex items-center justify-center sm:justify-start space-x-4">
                         <div class="w-10 h-10 sm:w-12 sm:h-12 bg-green-600 rounded-full flex items-center justify-center animate-float">
@@ -56,22 +38,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative scroll-animate order-first lg:order-last">
-                    <div class="laptop-mockup bg-white rounded-lg shadow-2xl p-6 sm:p-8 transform rotate-3 hover:rotate-0 transition-transform">
-                        <div class="bg-blue-600 h-6 sm:h-8 rounded-t-lg mb-4 flex items-center px-3">
-                            <div class="flex space-x-2">
-                                <div class="w-2 h-2 bg-red-400 rounded-full"></div>
-                                <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                                <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-                            </div>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="h-3 bg-gray-200 rounded animate-pulse"></div>
-                            <div class="h-3 bg-gray-200 rounded w-4/5 animate-pulse" style="animation-delay: 0.2s;"></div>
-                            <div class="h-3 bg-gray-200 rounded w-3/4 animate-pulse" style="animation-delay: 0.4s;"></div>
-                            <div class="h-3 bg-green-200 rounded w-2/3 animate-pulse" style="animation-delay: 0.6s;"></div>
-                        </div>
-                    </div>
+                <div class="relative scroll-animate order-first lg:order-last mt-8 lg:mt-0">
+                    <!-- Cercle décoratif, beaucoup plus gros -->
+                    <div class="absolute -top-16 left-1/2 -translate-x-1/2 z-0 cercle-deco" aria-hidden="true"></div>
+                    <img src="ecran_acceuil.webp" alt="Capture d'écran de l'application Talos"
+                         class="w-full h-auto rounded-lg mb-4 relative z-10 max-w-[120px] sm:max-w-xs md:max-w-md lg:max-w-full mx-auto" />
                 </div>
             </div>
         </div>
@@ -143,9 +114,6 @@
 </section>
 
 
-            </div>
-        </div>
-    </section>
 
     <!-- Video Section -->
     <section class="py-16 sm:py-20 bg-gray-50">
