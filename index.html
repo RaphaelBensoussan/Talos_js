@@ -13,8 +13,8 @@
     <!-- Hero Section -->
     <section class="min-h-screen flex items-center bg-white relative overflow-hidden pt-20 pb-16">
         <!-- Logo en haut à gauche -->
-        <div class="absolute top-10 left-20 z-20">
-            <img src="logo-talos.png" alt="Talos" class="h-24 w-auto">
+        <div class="absolute top-2 left-2 sm:top-8 sm:left-8 lg:top-10 lg:left-20 z-20">
+            <img src="logo-talos.png" alt="Talos" class="h-10 sm:h-14 lg:h-24 w-auto max-w-[60vw] sm:max-w-[80vw]">
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -23,14 +23,11 @@
                         TALOS : RÉVOLUTIONNEZ
                         <span class="text-green-600 block lg:inline">L'ACCESSIBILITÉ TEXTUELLE</span>
                     </h1>
-                    <p class="text-base sm:text-lg text-gray-700 max-w-lg">
-                        Avec Talos, l'esprit au service de la lecture ! 
-                        Nos textes sont optimisés FALC pour tous pros, 
-                        les ESAT et les structures socio-médico 
-                        handicap.
+                    <p class="text-base sm:text-lg text-blue-900 max-w-lg">
+                        Découvrez Talos, une interface de relecture et d’adaptation de texte spécialement conçue pour permettre aux personnes en situation de handicap intellectuel de participer activement à la validation des textes en FALC.
                     </p>
                     <button class="bg-blue-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-blue-800 transition-colors shadow-lg btn-pulse w-full sm:w-auto">
-                        Accéder à Talos
+                        Comment ça marche ?
                     </button>
                     <div class="flex items-center justify-center sm:justify-start space-x-4">
                         <div class="w-10 h-10 sm:w-12 sm:h-12 bg-green-600 rounded-full flex items-center justify-center animate-float">
@@ -41,13 +38,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative scroll-animate order-first lg:order-last">
-                    <!-- Cercle décoratif derrière l'image -->
-                    <div
-                        class="absolute -top-10 z-0 cercle-deco"
-                        aria-hidden="true"
-                    ></div>
-                    <img src="ecran_acceuil.webp" alt="Capture d'écran de l'application Talos" class="w-full rounded-lg mb-4 relative z-10">
+                <div class="relative scroll-animate order-first lg:order-last mt-8 lg:mt-0">
+                    <!-- Cercle décoratif, beaucoup plus gros -->
+                    <div class="absolute -top-16 left-1/2 -translate-x-1/2 z-0 cercle-deco" aria-hidden="true"></div>
+                    <img src="ecran_acceuil.webp" alt="Capture d'écran de l'application Talos"
+                         class="w-full h-auto rounded-lg mb-4 relative z-10 max-w-[120px] sm:max-w-xs md:max-w-md lg:max-w-full mx-auto" />
                 </div>
             </div>
         </div>

@@ -174,18 +174,26 @@ html, body {
 
 /* Cercle décoratif derrière l'image d'accueil */
 .cercle-deco {
-    left: 50rem;           /* Ajuste cette valeur pour déplacer encore plus à droite */
     background: rgb(10,24,77);
-    width: 256px;
-    height: 256px;
+    width: 480px;
+    height: 480px;
     border-radius: 50%;
-    filter: blur(0.2px);
-    transform: scale(4.98);
+    position: absolute;
+    background-image: url('motif.png');
+    background-repeat: repeat;
+    background-size: 60px 60px;
+    z-index: 0;
 }
-@media (min-width: 1024px) {
+@media (min-width: 640px) { /* sm */
     .cercle-deco {
-        left: 45rem;       /* Encore plus à droite sur grand écran */
-        top: -16rem;
+        width: 600px;
+        height: 600px;
+    }
+}
+@media (min-width: 1024px) { /* lg */
+    .cercle-deco {
+        width: 800px;
+        height: 800px;
     }
 }
 
