@@ -5,157 +5,236 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Talos - Révolutionnez l'accessibilité textuelle</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['MuseoModerno', 'sans-serif'],
+                    },
+                    colors: {
+                        'blue-900': '#1e3a8a',
+                        'green-500': '#22c55e',
+                        'green-600': '#16a34a',
+                        'yellow-500': '#eab308',
+                        'blue-800': '#2563eb',
+                        'blue-700': '#3b82f6',
+                        'green-400': '#4ade80',
+                        'gray-100': '#f3f4f6',
+                        'gray-200': '#e5e7eb',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'slide-in': 'slideIn 0.6s ease-out forwards',
+                        'flip': 'flip 0.6s ease-out forwards'
+                    },
+                    keyframes: {
+                        slideIn: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        flip: {
+                            '0%': { transform: 'rotateY(0deg)' },
+                            '100%': { transform: 'rotateY(180deg)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="font-sans">
-    
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center bg-white relative overflow-hidden pt-20 pb-16">
-        <!-- Logo en haut à gauche -->
-        <div class="absolute top-2 left-2 sm:top-8 sm:left-8 lg:top-10 lg:left-20 z-20">
-            <img src="logo-talos.png" alt="Talos" class="h-10 sm:h-14 lg:h-24 w-auto max-w-[60vw] sm:max-w-[80vw]">
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6 lg:space-y-8 scroll-animate">
-                    <h1 class="hero-title text-3xl sm:text-4xl lg:text-6xl font-bold text-blue-900 leading-tight">
-                        TALOS : RÉVOLUTIONNEZ
-                        <span class="text-green-600 block lg:inline">L'ACCESSIBILITÉ TEXTUELLE</span>
-                    </h1>
-                    <p class="text-base sm:text-lg text-blue-900 max-w-lg">
+<body class="font-sans text-gray-800 bg-white">
+    <!-- Header Section -->
+    <header class="relative bg-white overflow-hidden min-h-screen flex items-center">
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-green-50 to-blue-50 opacity-30"></div>
+        
+        <!-- Decorative Elements -->
+        <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-blue-900 rounded-full opacity-20 animate-pulse-slow"></div>
+        <div class="absolute bottom-0 left-0 w-1/4 h-1/4 bg-green-500 rounded-full opacity-20 animate-pulse-slow"></div>
+        
+        <img src="logo-talos.png" alt="Talos Logo" class="absolute top-3 left-4 sm:top-4 sm:left-8 md:top-6 md:left-12 z-20 h-16 sm:h-18 md:h-20 lg:h-24 w-auto">
+        
+        <div class="container mx-auto px-6 py-12 relative z-10">
+            <div class="flex items-center mb-8"></div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-6 scroll-reveal">
+                        TALOS : RÉVOLUTIONNEZ L'ACCESSIBILITÉ TEXTUELLE
+                    </h2>
+                    <p class="text-base sm:text-lg md:text-2xl text-blue-900 md:text-green-600 font-normal mb-8 scroll-reveal" style="animation-delay: 0.2s">
                         Découvrez Talos, une interface de relecture et d’adaptation de texte spécialement conçue pour permettre aux personnes en situation de handicap intellectuel de participer activement à la validation des textes en FALC.
                     </p>
-                    <button class="bg-blue-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-blue-800 transition-colors shadow-lg btn-pulse w-full sm:w-auto">
+                    <button id="accessButton" class="btn-hover bg-blue-900 hover:bg-blue-800 text-white font-bold py-5 px-10 rounded-lg transition duration-300 scroll-reveal inline-block ml-0 sm:ml-2 md:ml-4 mt-10 sm:mt-12 text-xl sm:text-2xl" style="animation-delay: 0.4s">
                         Comment ça marche ?
                     </button>
-                    <div class="flex items-center justify-center sm:justify-start space-x-4">
-                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-green-600 rounded-full flex items-center justify-center animate-float">
-                            <i class="fas fa-globe text-white text-lg sm:text-xl"></i>
-                        </div>
-                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-full flex items-center justify-center animate-float" style="animation-delay: 1s;">
-                            <i class="fas fa-info-circle text-white text-lg sm:text-xl"></i>
-                        </div>
+                </div>
+                <div class="lg:w-1/2 relative">
+                    <div class="bg-blue-900 rounded-3xl p-8 shadow-2xl scroll-reveal" style="animation-delay: 0.6s">
+                        <img src="https://placehold.co/600x400/white/blue?text=Laptop+with+Talos+Interface" alt="Talos Interface" class="rounded-lg w-full">
                     </div>
                 </div>
-                <div class="relative scroll-animate order-first lg:order-last mt-8 lg:mt-0">
-                    <!-- Cercle décoratif, beaucoup plus gros -->
-                    <div class="absolute -top-16 left-1/2 -translate-x-1/2 z-0 cercle-deco" aria-hidden="true"></div>
-                    <img src="ecran_acceuil.webp" alt="Capture d'écran de l'application Talos"
-                         class="w-full h-auto rounded-lg mb-4 relative z-10 max-w-[120px] sm:max-w-xs md:max-w-md lg:max-w-full mx-auto" />
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Info Banner -->
-    <section class="bg-blue-900 py-6 sm:py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col sm:flex-row items-center justify-between text-white space-y-4 sm:space-y-0">
-                <p class="text-sm sm:text-lg text-center sm:text-left">
-                    Talos <span class="font-bold">est un outil collaboratif qui permet aux personnes en situation de handicap intellectuel de participer à la relecture et à la validation des textes FALC (Facile à Lire et à Comprendre).
-                    </span>
-                </p>
-                <div class= " rounded-full style w-50 h-35">
-                
-                    <img src="Images/page_2/width_200.jpg" alt="Logo Talos" class="w-full h-full object-cover rounded-full">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <!-- Features Section -->
-<section id="features" class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <!-- Titre principal -->
-    <div class="text-center mb-8">
-      <h2 class="text-4xl font-bold text-blue-900 mb-4">Talos c'est ...</h2>
-    </div>
-
-    <!-- Grille des 4 icônes -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-      <!-- Carte 1 -->
-      <div class="bg-blue-900 rounded-2xl p-6 flex flex-col items-center justify-between">
-        <img src="Images/page_2/logo_ampoule.png" alt="Pertinence du contenu" class="w-16 h-16 mb-6">
-        <button class="bg-green-600 text-white px-4 py-2 rounded-full font-bold">
-          Pertinence du contenu
-        </button>
-      </div>
-
-      <!-- Carte 2 -->
-      <div class="bg-blue-900 rounded-2xl p-6 flex flex-col items-center justify-between">
-        <img src="Images/page_2/logo_coeur.png" alt="Collaboration inclusive" class="w-16 h-16 mb-6">
-        <button class="bg-green-600 text-white px-4 py-2 rounded-full font-bold">
-          Collaboration inclusive
-        </button>
-      </div>
-
-      <!-- Carte 3 -->
-      <div class="bg-blue-900 rounded-2xl p-6 flex flex-col items-center justify-between">
-        <img src="Images/page_2/logo_hero.png" alt="Automatisation" class="w-16 h-16 mb-6">
-        <button class="bg-green-600 text-white px-4 py-2 rounded-full font-bold">
-          Automatisation
-        </button>
-      </div>
-
-      <!-- Carte 4 -->
-      <div class="bg-blue-900 rounded-2xl p-6 flex flex-col items-center justify-between">
-        <img src="Images/page_2/logo_diplome.png" alt="Compétences numériques" class="w-16 h-16 mb-6">
-        <button class="bg-green-600 text-white px-4 py-2 rounded-full font-bold">
-          Compétences numériques
-        </button>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-    <!-- Video Section -->
-    <section class="py-16 sm:py-20 bg-gray-50">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="mb-12">
-                <div class="flex items-center justify-center mb-6 sm:mb-8">
-                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-900 rounded-full flex items-center justify-center mr-3 sm:mr-4">
-                        <i class="fas fa-home text-white text-lg sm:text-2xl"></i>
-                    </div>
-                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-600 rounded-full flex items-center justify-center">
-                        <i class="fas fa-question-circle text-white text-lg sm:text-2xl"></i>
-                    </div>
-                </div>
-                <h2 class="text-2xl sm:text-3xl font-bold text-blue-900 mb-4">Comment fonctionne Talos ?</h2>
-                <p class="text-2xl sm:text-lg text-gray-700 mb-8 px-4">
-                l’interface collaborative dédiée à la relecture, la correction et la validation de textes en <span class="font-bold">FALC</span> 
-                    <span class="text-blue-600 font-bold">Talos</span>
-                </p>
             </div>
             
-            <div class="relative px-4">
-                <button id="playVideoBtn" class="video-btn bg-yellow-400 text-blue-900 px-4 sm:px-8 py-4 sm:py-6 rounded-lg text-2xl sm:text-xl font-bold hover:bg-yellow-300 transition-colors shadow-xl transform hover:scale-105 w-full sm:w-auto">
-                    <i class="fas fa-play mr-2 sm:mr-3"></i>
-                    <span class="hidden sm:inline">VIDÉO EXPLICATIVE DE TALOS SANS AVOIR À APPUYER SUR PLAY</span>
-                    <span class="sm:hidden">VIDÉO EXPLICATIVE TALOS</span>
+            <div class="flex justify-center mt-32">
+                <button id="scrollDown" class="bg-blue-900 rounded-full p-5 hover:bg-blue-800 transition duration-300 btn-hover animate-bounce">
+                    <i class="fas fa-arrow-down text-white text-2xl"></i>
                 </button>
             </div>
-            
-   <div class="mt-6 sm:mt-8">
-  <a href="#"
-     class="bg-blue-600 text-white font-semibold text-sm sm:text-2xl px-4 py-2 rounded-lg">
-    Je veux essayer
-  </a>
-</div>
+        </div>
+    </header>
 
+    <!-- Mission Section -->
+    <section id="mission" class="bg-blue-900 text-white py-8 md:py-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-8">
+                <div class="w-full scroll-reveal">
+                    <h3 class="text-xl md:text-2xl font-bold leading-relaxed mb-4 max-w-5xl">
+                        Talos est un outil collaboratif qui permet aux personnes en situation de handicap intellectuel de participer à la relecture et à la validation des textes FALC (Facile à Lire et à Comprendre).
+                    </h3>
+                </div>
+                <div class="lg:w-1/3 scroll-reveal" style="animation-delay: 0.2s">
+                    <img src="Images/page_2/width_200.jpg" alt="Support and Collaboration" class="blob-mask w-full">
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section class="py-20 bg-white">
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-white section-spacing">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl sm:text-5xl font-bold text-blue-900 mb-12 sm:mb-16 text-left scroll-reveal">
+                Talos c'est ...
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-blue-900 rounded-xl p-6 text-center">
+                    <div class="card-flip" onclick="toggleCard(this)">
+                        <div class="card-front">
+                            <div class="absolute top-2 right-2 bg-white/20 text-white rounded-full w-6 h-6 flex items-center justify-center pointer-events-none">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </div>
+                            <img src="Images/page_2/logo_ampoule.png" alt="Pertinence du contenu" class="w-full h-auto max-h-28 sm:max-h-32 md:max-h-36 object-contain mx-auto" />
+                            <div class="bg-green-500 text-white rounded-full py-2 px-4 inline-block text-base sm:text-lg">
+                                Pertinence du contenu
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3 class="text-xl md:text-2xl font-bold mb-2">Pertinence du contenu</h3>
+                            <p class="text-sm md:text-base text-center">Notre algorithme intelligent analyse chaque texte pour garantir qu'il respecte les principes FALC, assurant ainsi une compréhension optimale pour tous les utilisateurs.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card bg-blue-900 rounded-xl p-6 text-center">
+                    <div class="card-flip" onclick="toggleCard(this)">
+                        <div class="card-front">
+                            <div class="absolute top-2 right-2 bg-white/20 text-white rounded-full w-6 h-6 flex items-center justify-center pointer-events-none">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </div>
+                            <img src="Images/page_2/logo_coeur.png" alt="Collaboration inclusive" class="w-full h-auto max-h-28 sm:max-h-32 md:max-h-36 object-contain mx-auto" />
+                            <div class="bg-green-500 text-white rounded-full py-2 px-4 inline-block text-base sm:text-lg">
+                                Collaboration inclusive
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3 class="text-xl md:text-2xl font-bold mb-2">Collaboration inclusive</h3>
+                            <p class="text-sm md:text-base text-center">Talos permet aux personnes en situation de handicap de participer activement à la validation des contenus, favorisant leur autonomie et leur implication dans le processus.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card bg-blue-900 rounded-xl p-6 text-center">
+                    <div class="card-flip" onclick="toggleCard(this)">
+                        <div class="card-front">
+                            <div class="absolute top-2 right-2 bg-white/20 text-white rounded-full w-6 h-6 flex items-center justify-center pointer-events-none">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </div>
+                            <img src="Images/page_2/logo_hero.png" alt="Automatisation" class="w-full h-auto max-h-28 sm:max-h-32 md:max-h-36 object-contain mx-auto" />
+                            <div class="bg-green-500 text-white rounded-full py-2 px-4 inline-block text-base sm:text-lg">
+                                Automatisation
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3 class="text-xl md:text-2xl font-bold mb-2">Automatisation</h3>
+                            <p class="text-sm md:text-base text-center">Grâce à notre technologie avancée, Talos automatise la simplification des textes tout en conservant leur sens original, gagnant ainsi un temps précieux pour les professionnels.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card bg-blue-900 rounded-xl p-6 text-center">
+                    <div class="card-flip" onclick="toggleCard(this)">
+                        <div class="card-front">
+                            <div class="absolute top-2 right-2 bg-white/20 text-white rounded-full w-6 h-6 flex items-center justify-center pointer-events-none">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </div>
+                            <img src="Images/page_2/logo_diplome.png" alt="Compétences numériques" class="w-full h-auto max-h-28 sm:max-h-32 md:max-h-36 object-contain mx-auto" />
+                            <div class="bg-green-500 text-white rounded-full py-2 px-4 inline-block text-[15px] sm:text-[17px]">
+                                Compétences numériques
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3 class="text-xl md:text-2xl font-bold mb-2">Compétences numériques</h3>
+                            <p class="text-sm md:text-base text-center">En utilisant Talos régulièrement, les utilisateurs développent leurs compétences numériques, ce qui les prépare mieux à l'utilisation d'autres outils technologiques dans leur vie quotidienne.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button id="learnMoreButton" class="btn-hover bg-blue-900 hover:bg-blue-800 text-white font-bold py-5 px-10 rounded-lg transition duration-300 inline-block ml-0 sm:ml-2 md:ml-4 mt-8 sm:mt-10 text-xl sm:text-2xl">
+                    En savoir +
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use Section -->
+    <section id="howToUse" class="pt-4 pb-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="mb-4 relative">
+                <img src="Images/interrogation_clair.png" alt="Interrogation claire" class="hidden sm:block w-20 h-20 absolute left-10 sm:left-16 top-[35%] -translate-y-1/2 -rotate-[25deg]" />
+                <img src="Images/interrogation_foncee.png" alt="Interrogation foncée" class="hidden sm:block w-20 h-20 absolute right-10 sm:right-16 top-[35%] -translate-y-1/2 rotate-[25deg]" />
+                <h2 class="text-3xl sm:text-4xl font-bold text-blue-900 text-center leading-snug max-w-3xl mx-auto">Comment fonctionne Talos,<br> l’interface collaborative dédiée à la relecture, la correction et la validation de textes en FALC ?</h2>
+            </div>
+            
+            <p class="text-xl text-center text-blue-900 mb-8">
+                l'application qui simplifie les textes avec la méthode FALC <span class="text-green-600 font-bold">Talos</span>
+            </p>
+            
+            <div class="video-container scroll-reveal" style="animation-delay: 0.2s">
+                <div class="video-title">
+                    VIDEO EXPLICATIVE DE TALOS 
+                </div>
+                <div class="play-button" onclick="playVideo()">
+                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10 sm:mt-12">
+                <a href="#" id="talosAccessLink" class="btn-hover bg-blue-900 hover:bg-blue-800 text-white font-bold py-5 px-10 rounded-lg transition duration-300 inline-block text-xl sm:text-2xl">
+                    Je veux essayer
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section (from index.html) -->
+    <section id="benefits" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-blue-900 mb-4">
+                <h2 class="text-4xl font-bold text-blue-900 md:text-green-600 mb-4">
                     <i class="fas fa-quote-left text-gray-400 text-2xl mr-2"></i>
                     Les bonnes raisons d'utiliser l'application Talos !
                     <i class="fas fa-quote-right text-gray-400 text-2xl ml-2"></i>
@@ -164,143 +243,267 @@
             
             <div class="space-y-20">
                <!-- Benefit 1 -->
-<div class="grid lg:grid-cols-2 gap-12 items-center"> 
-  <div class="order-2 lg:order-1">
-    <div class="bg-blue-900 text-white p-8 rounded-2xl relative">
-      <h3 class="text-xl font-bold mb-4">Participation active</h3>
-      <p class="text-blue-100">
-        Les personnes en situation de handicap intellectuel participent activement à la validation des contenus FALC
-      </p>
-      <div class="absolute -right-4 top-8 w-8 h-8 bg-blue-900 transform rotate-45"></div>
-    </div>
-  </div>
-  <div class="order-1 lg:order-2">
-    <div class="bg-gray-200 h-48 rounded-2xl overflow-hidden">
-      <img src="Images/page_4/salarié_triomph.png" alt="Participation active" class="w-full h-full object-cover">
-    </div>
-  </div>
-</div>
+               <div class="grid lg:grid-cols-2 gap-12 items-center"> 
+                 <div class="order-2 lg:order-1">
+                   <div class="bg-blue-900 text-white p-8 rounded-2xl relative">
+                     <h3 class="text-xl font-bold mb-4">Participation active</h3>
+                     <p class="text-blue-100">
+                       Les personnes en situation de handicap intellectuel participent activement à la validation des contenus FALC
+                     </p>
+                     <div class="absolute -right-4 top-8 w-8 h-8 bg-blue-900 transform rotate-45"></div>
+                   </div>
+                 </div>
+                 <div class="order-1 lg:order-2">
+                   <div class="bg-gray-200 h-48 rounded-2xl overflow-hidden">
+                     <img src="Images/page_4/salarié_triomph.png" alt="Participation active" class="w-full h-full object-cover">
+                   </div>
+                 </div>
+               </div>
 
-<!-- Benefit 2 -->
-<div class="grid lg:grid-cols-2 gap-12 items-center">
-  <div>
-    <div class="bg-gray-200 h-48 rounded-2xl overflow-hidden">
-      <img src="Images/page_4/ordi_travail.webp" alt="Contenus adaptés" class="w-full h-full object-cover">
-    </div>
-  </div>
-  <div>
-    <div class="bg-blue-900 text-white p-8 rounded-2xl relative">
-      <h3 class="text-xl font-bold mb-4">Contenus vraiment adaptés</h3>
-      <p class="text-blue-100">
-        Grâce à leurs suggestions, nos textes sont plus simples, plus lisibles, pertinents et accessibles
-      </p>
-      <div class="absolute -left-4 top-8 w-8 h-8 bg-blue-900 transform rotate-45"></div>
-    </div>
-  </div>
-</div>
+               <!-- Benefit 2 -->
+               <div class="grid lg:grid-cols-2 gap-12 items-center">
+                 <div>
+                   <div class="bg-gray-200 h-48 rounded-2xl overflow-hidden">
+                     <img src="Images/page_4/ordi_travail.webp" alt="Contenus adaptés" class="w-full h-full object-cover">
+                   </div>
+                 </div>
+                 <div>
+                   <div class="bg-blue-900 text-white p-8 rounded-2xl relative">
+                     <h3 class="text-xl font-bold mb-4">Contenus vraiment adaptés</h3>
+                     <p class="text-blue-100">
+                       Grâce à leurs suggestions, nos textes sont plus simples, plus lisibles, pertinents et accessibles
+                     </p>
+                     <div class="absolute -left-4 top-8 w-8 h-8 bg-blue-900 transform rotate-45"></div>
+                   </div>
+                 </div>
+               </div>
 
-<!-- Benefit 3 -->
-<div class="grid lg:grid-cols-2 gap-12 items-center">
-  <div class="order-2 lg:order-1">
-    <div class="bg-blue-900 text-white p-8 rounded-2xl relative">
-      <h3 class="text-xl font-bold mb-4">Développement des compétences numériques</h3>
-      <p class="text-blue-100">
-        L'utilisation régulière de l'interface développe leurs compétences numériques
-      </p>
-      <div class="absolute -right-4 top-8 w-8 h-8 bg-blue-900 transform rotate-45"></div>
-    </div>
-  </div>
-  <div class="order-1 lg:order-2">
-    <div class="bg-gray-200 h-48 rounded-2xl overflow-hidden">
-      <img src="Images/page_4/enfant_ipad.webp" alt="Compétences numériques" class="w-full h-full object-cover">
-    </div>
-  </div>
-</div>
-</div>
-</div>
+               <!-- Benefit 3 -->
+               <div class="grid lg:grid-cols-2 gap-12 items-center">
+                 <div class="order-2 lg:order-1">
+                   <div class="bg-blue-900 text-white p-8 rounded-2xl relative">
+                     <h3 class="text-xl font-bold mb-4">Développement des compétences numériques</h3>
+                     <p class="text-blue-100">
+                       L'utilisation régulière de l'interface développe leurs compétences numériques
+                     </p>
+                     <div class="absolute -right-4 top-8 w-8 h-8 bg-blue-900 transform rotate-45"></div>
+                   </div>
+                 </div>
+                 <div class="order-1 lg:order-2">
+                   <div class="bg-gray-200 h-48 rounded-2xl overflow-hidden">
+                     <img src="Images/page_4/enfant_ipad.webp" alt="Compétences numériques" class="w-full h-full object-cover">
+                   </div>
+                 </div>
+               </div>
+            </div>
+        </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-20 bg-blue-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-4">Vos avis sur l'application Talos</h2>
-            </div>
+    <section id="testimonials" class="py-16 bg-blue-900 text-white section-spacing">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">
+                Vos avis sur l'application <span class="text-green-500">Talos</span>
+            </h2>
             
             <div class="relative">
-                <div id="testimonialCarousel" class="flex transition-transform duration-300">
-                    <div class="w-full flex-shrink-0 px-4">
-                        <div class="bg-white p-8 rounded-2xl text-center max-w-md mx-auto">
-                            <p class="text-gray-700 mb-4">"Application très utile pour notre équipe."</p>
-                            <div class="font-bold text-blue-900">— Utilisateur 1</div>
+                <div class="testimonial-slider" id="testimonials-container">
+                    <div class="testimonial-card flex-shrink-0 w-full md:w-80 p-6 bg-white text-blue-900 rounded-xl transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-white font-bold">
+                                M
+                            </div>
+                            <div class="ml-4">
+                                <div class="font-bold">Marie Dupont, ESAT</div>
+                                <div class="text-xs text-gray-500">Avis Google</div>
+                            </div>
+                        </div>
+                        <p class="italic">Talos a transformé notre approche de l'accessibilité. Nos contenus sont désormais compréhensibles par tous. C'est un véritable changement de paradigme pour nos équipes et nos bénéficiaires. COMMENTAIRE FICTIF !</p>
+                        <div class="testimonial-rating mt-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
                     </div>
-                    <div class="w-full flex-shrink-0 px-4">
-                        <div class="bg-white p-8 rounded-2xl text-center max-w-md mx-auto">
-                            <p class="text-gray-700 mb-4">"Interface simple et efficace."</p>
-                            <div class="font-bold text-blue-900">— Utilisateur 2</div>
+                    
+                    <div class="testimonial-card flex-shrink-0 w-full md:w-80 p-6 bg-white text-blue-900 rounded-xl transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-white font-bold">
+                                J
+                            </div>
+                            <div class="ml-4">
+                                <div class="font-bold">Jean Martin, Directeur d'association</div>
+                                <div class="text-xs text-gray-500">Avis Google</div>
+                            </div>
+                        </div>
+                        <p class="italic">Grâce à Talos, nos bénéficiaires participent activement à la validation des documents. C'est révolutionnaire ! Leur engagement et leur fierté sont palpables lorsqu'ils contribuent à améliorer les contenus. COMMENTAIRE FICTIF !</p>
+                        <div class="testimonial-rating mt-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
                         </div>
                     </div>
-                    <div class="w-full flex-shrink-0 px-4">
-                        <div class="bg-white p-8 rounded-2xl text-center max-w-md mx-auto">
-                            <p class="text-gray-700 mb-4">"Parfait pour nos besoins d'accessibilité."</p>
-                            <div class="font-bold text-blue-900">— Utilisateur 3</div>
+                    
+                    <div class="testimonial-card flex-shrink-0 w-full md:w-80 p-6 bg-white text-blue-900 rounded-xl transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-white font-bold">
+                                S
+                            </div>
+                            <div class="ml-4">
+                                <div class="font-bold">Sophie Leroy, Ergonome</div>
+                                <div class="text-xs text-gray-500">Avis Google</div>
+                            </div>
+                        </div>
+                        <p class="italic">L'interface est intuitive et les résultats parlent d'eux-mêmes. Une vraie amélioration pour nos utilisateurs. Je recommande vivement Talos à toutes les structures qui souhaitent améliorer leur accessibilité. COMMENTAIRE FICTIF !</p>
+                        <div class="testimonial-rating mt-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card flex-shrink-0 w-full md:w-80 p-6 bg-white text-blue-900 rounded-xl transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-white font-bold">
+                                P
+                            </div>
+                            <div class="ml-4">
+                                <div class="font-bold">Pierre Dubois, Formateur</div>
+                                <div class="text-xs text-gray-500">Avis Google</div>
+                            </div>
+                        </div>
+                        <p class="italic">Talos nous aide à respecter les normes d'accessibilité tout en développant les compétences numériques de nos usagers. C'est un outil pédagogique exceptionnel qui combine efficacité et inclusion. COMMENTAIRE FICTIF !</p>
+                        <div class="testimonial-rating mt-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card flex-shrink-0 w-full md:w-80 p-6 bg-white text-blue-900 rounded-xl transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-white font-bold">
+                                A
+                            </div>
+                            <div class="ml-4">
+                                <div class="font-bold">Alice Moreau, Éducatrice spécialisée</div>
+                                <div class="text-xs text-gray-500">Avis Google</div>
+                            </div>
+                        </div>
+                        <p class="italic">J'ai vu mes élèves progresser rapidement grâce à Talos. Ils sont fiers de pouvoir comprendre et modifier les textes eux-mêmes. Leur confiance en eux a considérablement augmenté depuis l'introduction de cette application. COMMENTAIRE FICTIF !</p>
+                        <div class="testimonial-rating mt-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
                     </div>
                 </div>
                 
-                <button id="prevBtn" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-50">
-                    <i class="fas fa-chevron-left text-blue-900"></i>
+                <button id="prevTestimonial" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white text-blue-900 p-3 rounded-full hover:bg-blue-100 transition duration-300 btn-hover">
+                    <i class="fas fa-chevron-left text-xl"></i>
                 </button>
-                <button id="nextBtn" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-50">
-                    <i class="fas fa-chevron-right text-blue-900"></i>
+                
+                <button id="nextTestimonial" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white text-blue-900 p-3 rounded-full hover:bg-blue-100 transition duration-300 btn-hover">
+                    <i class="fas fa-chevron-right text-xl"></i>
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-20 bg-white text-center">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-gray-800 mb-4">
-                Ne sois plus spectateur, <span class="text-green-600">deviens acteur du FALC !</span>
+    <!-- Call to Action Section -->
+    <section id="cta" class="py-16 bg-white section-spacing">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-900 md:text-green-600 mb-4 scroll-reveal">
+                Ne sois plus spectateur, <span class="text-blue-900 md:text-green-600 font-normal">deviens acteur du FALC</span> !
             </h2>
-            <p class="text-xl text-gray-600 mb-8">
-                Rejoins l'aventure Talos et contribue à l'interface directement !
+            <p class="text-lg text-gray-600 mb-8 scroll-reveal" style="animation-delay: 0.2s">
+                Participe à la création de contenus accessibles pour tous.
             </p>
-             <button class ="bg-blue-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-xl font-bold">
-                 <p> Cliquez ici</p>
-                    </button>
-            <div class="mt-8">
-                <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto">
+            <button id="finalCtaButton" class="btn-hover bg-blue-900 hover:bg-blue-800 text-white font-bold py-4 px-8 rounded-lg text-xl transition duration-300 scroll-reveal" style="animation-delay: 0.4s">
+                Demande à essayer Talos
+            </button>
+            
+            <div class="mt-12 flex justify-center">
+                <button id="scrollUp" class="bg-green-500 rounded-full p-4 hover:bg-green-400 transition duration-300 btn-hover">
                     <i class="fas fa-arrow-up text-white text-2xl"></i>
-                </div>
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-blue-900 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p>Infos de l'association, réseaux sociaux, LinkedIn</p>
-        </div>
-    </footer>
-
-    <!-- Video Modal -->
-    <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-75 hidden z-50 flex items-center justify-center">
-        <div class="bg-white rounded-lg p-8 max-w-4xl mx-4">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold">Vidéo explicative Talos</h3>
-                <button id="closeModal" class="text-gray-500 hover:text-gray-700">
-                    <i class="fas fa-times text-2xl"></i>
-                </button>
+    <!-- Video Playback Modal -->
+    <div id="videoPlayback" class="video-playback">
+        <div class="video-frame">
+            <div class="close-video" onclick="closeVideo()">
+                <i class="fas fa-times text-white"></i>
             </div>
-            <div class="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
-                <p class="text-gray-600">Vidéo explicative ici</p>
-            </div>
+            <iframe id="ytPlayer" class="w-full h-full" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-lg">
+                Infos de l'association, réseaux sociaux, LinkedIn
+            </p>
+        </div>
+    </footer>
+
+    
+    <script src="script.js" defer></script>
+    
+    <!-- Accessibility Button and Panel -->
+    <button id="a11yFab" aria-label="Ouvrir les réglages d'accessibilité" class="a11y-fab" type="button">
+        <i class="fas fa-universal-access"></i>
+    </button>
+    <aside id="a11yPanel" class="a11y-panel" aria-label="Panneau d'accessibilité" aria-hidden="true">
+        <div class="a11y-panel-header">
+            <span>Accessibilité</span>
+            <button id="a11yClose" class="a11y-close" aria-label="Fermer le panneau" type="button">&times;</button>
+        </div>
+        <div class="a11y-panel-content">
+            <div class="a11y-field">
+                <label for="a11yFont">Police du site</label>
+                <select id="a11yFont">
+                    <option value="">Par défaut</option>
+                    <option value="arial">Arial</option>
+                    <option value="verdana">Verdana</option>
+                    <option value="tahoma">Tahoma</option>
+                </select>
+            </div>
+            <div class="a11y-field">
+                <label for="a11yContrast">Contraste</label>
+                <select id="a11yContrast">
+                    <option value="">Par défaut</option>
+                    <option value="high-light">Noir sur blanc (élevé)</option>
+                    <option value="high-dark">Blanc sur noir (élevé)</option>
+                    <option value="grayscale">Niveaux de gris</option>
+                </select>
+            </div>
+            <div class="a11y-field">
+                <label for="a11yFontSize">Taille de police (site)</label>
+                <input id="a11yFontSize" type="range" min="14" max="22" step="1" value="16" />
+                <small id="a11yFontSizeValue">16 px</small>
+            </div>
+            <div class="a11y-field">
+                <label for="a11yBgColor">Couleur de fond de page</label>
+                <input id="a11yBgColor" type="color" value="#ffffff" />
+            </div>
+            <div class="a11y-actions">
+                <button id="a11yReset" type="button" class="a11y-reset">Réinitialiser</button>
+            </div>
+        </div>
+    </aside>
 </body>
 </html>
